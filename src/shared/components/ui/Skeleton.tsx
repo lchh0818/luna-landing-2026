@@ -4,12 +4,40 @@ interface SkeletonProps {
   className?: string;
 }
 
-export function Skeleton({ className = '' }: SkeletonProps) {
-  return <div className={`animate-pulse rounded-lg bg-luna-dark/10 ${className}`} />;
+interface SkeletonTextProps extends SkeletonProps {
+  lines?: number;
+  lineHeight?: string;
+  lastLineWidth?: string;
+  gapClassName?: string;
 }
 
-export function SkeletonText({ className = '' }: SkeletonProps) {
-  return <Skeleton className={`h-4 ${className}`} />;
+export function Skeleton({ className = '' }: SkeletonProps) {
+  return (
+    <div className={`animate-pulse rounded-lg bg-luna-dark/10 ${className}`} />
+  );
+}
+
+export function SkeletonText({
+  className = '',
+  lines = 1,
+  lineHeight = 'h-4',
+  lastLineWidth = 'w-[80%]',
+  gapClassName = 'space-y-2',
+}: SkeletonTextProps) {
+  return (
+    <div className={`${gapClassName} ${className}`}>
+      {Array.from({ length: lines }).map((_, index) => {
+        const isLast = index === lines - 1;
+
+        return (
+          <Skeleton
+            key={index}
+            className={`${lineHeight} ${isLast ? lastLineWidth : 'w-full'}`}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
 export function SkeletonHeading({ className = '' }: SkeletonProps) {

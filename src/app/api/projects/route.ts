@@ -3,6 +3,7 @@ import { supabase } from '@/lib/superbase';
 import { getPublicImageUrl } from '@/lib/storage';
 
 export const dynamic = 'force-dynamic';
+// export const revalidate = 86400;
 
 type ProjectRow = {
   id: number;
@@ -28,7 +29,7 @@ export async function GET() {
     supabase
       .from('projects')
       .select('*')
-      .order('display_order', { ascending: true, nullsFirst: false })
+      .order('display_order', { ascending: false, nullsFirst: false })
       .order('id', { ascending: true }),
     supabase
       .from('project_awards')

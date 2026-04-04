@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/superbase';
 
 export const dynamic = 'force-dynamic';
+// export const revalidate = 86400;
 
 type QnaRow = {
   id: number;
@@ -14,7 +15,7 @@ export async function GET() {
   const { data, error } = await supabase
     .from('qna')
     .select('*')
-    .order('display_order', { ascending: true, nullsFirst: false })
+    .order('display_order', { ascending: false, nullsFirst: false })
     .order('id', { ascending: true });
 
   if (error) {

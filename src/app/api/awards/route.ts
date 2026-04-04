@@ -3,6 +3,7 @@ import { supabase } from '@/lib/superbase';
 import { getPublicImageUrl } from '@/lib/storage';
 
 export const dynamic = 'force-dynamic';
+// export const revalidate = 86400;(하루 주기)
 
 type AwardRow = {
   id: number;

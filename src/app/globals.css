@@ -2,7 +2,8 @@
 
 @import "tailwindcss";
 
-@config "../../tailwind.config.ts";
+@config "../../tailwind.config.ts"; 
+/* tailwind css 남겨두기 */
 
 * {
   font-family: "Pretendard Variable", sans-serif;
@@ -11,7 +12,14 @@
 html,
 body {
   scroll-behavior: smooth;
-  background-color: var(--luna-white);
+
+  background:
+    radial-gradient(circle at 15% 25%, rgba(144, 127, 223, 0.25), transparent 30%),
+    radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.7), transparent 25%),
+    radial-gradient(circle at 80% 75%, rgba(82, 75, 155, 0.18), transparent 35%),
+    radial-gradient(circle at 20% 80%, rgba(144, 127, 223, 0.15), transparent 35%),
+    linear-gradient(180deg, #fcfcff 0%, #f3f5ff 100%);
+
   color: var(--luna-black);
 }
 
@@ -36,3 +44,115 @@ body {
     transform: translate(0, -10px);
   }
 }
+
+/* src/app/globals.css */
+/* 기존 코드 그대로 유지 */
+
+@keyframes bounce {
+  0% {
+    transform: translate(0, -10px);
+  }
+
+  50% {
+    transform: translate(0, 20px);
+  }
+
+  100% {
+    transform: translate(0, -10px);
+  }
+}
+
+/* ===== Home Hero Glass Styles ===== */
+
+html,
+body {
+  background:
+    radial-gradient(circle at 18% 30%, rgba(144, 127, 223, 0.18), transparent 26%),
+    radial-gradient(circle at 82% 20%, rgba(255, 255, 255, 0.58), transparent 18%),
+    radial-gradient(circle at 76% 72%, rgba(82, 75, 155, 0.14), transparent 28%),
+    linear-gradient(180deg, #fcfcff 0%, #f4f6ff 100%);
+}
+
+.hero-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-shell::before {
+  content: "";
+  position: absolute;
+  left: -120px;
+  top: 80px;
+  width: 420px;
+  height: 420px;
+  border-radius: 9999px;
+  background: rgba(144, 127, 223, 0.14);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.hero-shell::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  bottom: 40px;
+  width: 380px;
+  height: 380px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.45);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  box-shadow: 0 20px 60px rgba(43, 39, 75, 0.16);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.glass-soft {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 12px 32px rgba(43, 39, 75, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.glass-outline {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.06)
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.hero-title {
+  letter-spacing: -0.07em;
+  line-height: 0.98;
+}
+
+.hero-body {
+  line-height: 1.85;
+}
+
+.logo-float {
+  animation: float-soft 5.2s ease-in-out infinite;
+}
+
+@keyframes float-soft {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
