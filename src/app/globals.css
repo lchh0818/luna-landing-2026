@@ -3,6 +3,7 @@
 @import "tailwindcss";
 
 @config "../../tailwind.config.ts"; 
+
 /* tailwind css 남겨두기 */
 
 * {
@@ -156,3 +157,102 @@ body {
   }
 }
 
+/* ===== members element-only glass ===== */
+
+.glass-chip-soft {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow:
+    0 6px 14px rgba(43, 39, 75, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-image-soft {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.05)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow:
+    0 10px 20px rgba(43, 39, 75, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-image-soft::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 24% 20%, rgba(255,255,255,0.22), transparent 24%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass-text-pill-soft {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 8px 18px rgba(43, 39, 75, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-name-soft {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.glass-soft-hover {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.glass-soft-hover:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 22px rgba(43, 39, 75, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.glass-member-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 18px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 10px 24px rgba(43, 39, 75, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-member-group::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.16), transparent 24%),
+    linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  pointer-events: none;
+}
+
+.glass-member-group > * {
+  position: relative;
+  z-index: 1;
+}
